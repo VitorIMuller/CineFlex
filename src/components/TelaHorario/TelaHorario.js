@@ -1,38 +1,38 @@
 export default function TelaHorario(){
     return(
         <>
-        <div class="topo">
+        <div className="topo">
         CINEFLEX
       </div>
-      <div class="selecao">
+      <div className="selecao">
         Selecione o horário
       </div>
 
-      <div class="horarioFilme">
+      <div className="horarioFilme">
         <p>Quinta-feira - 24/06/2021</p>
-        <div class="listaHorario">
-          <div class="horario">
+        <div className="listaHorario">
+          <div className="horario">
             15:00
           </div>
-          <div class="horario">
+          <div className="horario">
             19:00
           </div>
         </div>
       </div>
 
-      <div class="horarioFilme">
+      <div className="horarioFilme">
         <p>Quinta-feira - 24/06/2021</p>
-        <div class="listaHorario">
-            <div class="horario">
+        <div className="listaHorario">
+            <div className="horario">
               15:00
             </div>
-            <div class="horario">
+            <div className="horario">
               19:00
             </div>
         </div>
       </div>
-      <div class="rodape">
-        <div class="filmeRodape">
+      <div className="rodape">
+        <div className="filmeRodape">
           a
         </div>
         <p>Enola Holmes</p>
