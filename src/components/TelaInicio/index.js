@@ -12,7 +12,15 @@ export default function TelaInicio(){
         promessa.then(resposta=> {
             setFilmes(resposta.data)
         });
-    }), [];
+    }, []);
+
+    if(filmes.length === 0){
+        return (
+            <>
+                <p>Carregando...</p>            
+            </>
+        )
+    }
     
 
     return(
@@ -22,9 +30,11 @@ export default function TelaInicio(){
         </div>
         <div className="listaFilmes">
             {filmes.map((filme)=> 
-            <div className="filme">
-                <img src={filme.posterURL}></img>
-            </div> 
+                <Link to={`sessoes/${filme.id}`}>
+                    <div key={filme.id} className="filme">
+                        <img src={filme.posterURL}></img>
+                    </div> 
+                </Link>
             )}
         </div>
     </>

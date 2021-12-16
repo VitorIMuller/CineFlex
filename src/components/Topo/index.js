@@ -1,3 +1,5 @@
+import './style.css'
+
 function Topo(){
     return(
         <div className="topo">
