@@ -1,0 +1,177 @@
+.rodape{
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    height: 117px ;
+
+    display: flex;
+    align-items: center;
+
+    background-color: white;
+
+    border-top: solid 1px #9EADBA ;
+    
+ }
+.filmeRodape{
+        width: 64px;
+        height: 89px;
+    
+        padding: 8px;
+       
+        margin-left: 10px;
+        margin-bottom: 15px;
+        margin-top: 20px;
+
+        
+
+} 
+.rodape p{
+     margin-left: 14px;
+     font-weight: 400;
+     font-size: 26px;
+     color: #293845;
+}
+.descriçãoRodapé{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    
+}
+.topo {
+    width: 100%;
+    height: 67px;
+    
+    background-color: #c3cfd9;
+    
+    color: #e8833a;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 34px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.assentos {
+    width: 350px;
+    height: 200px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 7px;
+    
+    background-color: gray;
+}
+.assento {
+    width: 26px;
+    height: 26px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50px;
+    
+    margin-bottom: 0;
+    
+    background-color: #C3CFD9;
+}
+.legendas {
+    width: 350px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.legendaAssento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 40px;
+    margin-top: 16px;
+}
+.verde{
+    background-color: #8DD7CF;
+    
+    width: 26px;
+    height: 26px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50px;
+}
+.disponivel{
+     background-color: #C3CFD9;
+    
+    width: 26px;
+    height: 26px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50px;
+}
+.indisponivel{
+    background-color: #FBE192;
+    width: 26px;
+    height: 26px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50px;
+    
+    margin-bottom: 0;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    border: 1px solid #d4d4d4;
+    font-style: italic;
+    color: #afafaf;
+    
+    width: 327px;
+    height: 51px;
+    
+    padding-left: 10px;
+}
+
+.rodape img{
+    width: 64px;
+    height: 89px;
+}
+.margin{
+    margin-left: 10px;
+}
+.reservaBotao{
+    width: 225px;
+    height: 42px;
+
+    background-color: #E8833A;
+
+    border: none;
+
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+}
+.alinhabotao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 30px;
+}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './style.css'
 
 export default function TelaHorario(){
@@ -24,7 +24,7 @@ export default function TelaHorario(){
        </>
      )
     }
-    
+    console.log(filme)
     return (
 <div>
 
@@ -36,9 +36,12 @@ export default function TelaHorario(){
             <p>{filme.weekday} - {filme.date}</p>
                 <div className="listaHorario">
                     {filme.showtimes.map((horario)=>
-                        <div className="horario">
+                    <Link to={`assentos/${horario.id}`}>
+                        <div  className="horario">
                             {horario.name}
                         </div>
+                    </Link>
+              
                       )}
                 </div>   
       </div>
