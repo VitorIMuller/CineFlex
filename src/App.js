@@ -14,7 +14,7 @@ function App(){
                 <Route path="/" element={<TelaInicio/>} exact></Route>
                 <Route path="/sessoes/:idFilme" element={<TelaHorario/>} ></Route>
                 <Route path="/sessoes/:idFilme/assentos/:idSessao" element={<TelaSessao/>}></Route>
-                <Route path="/sucesso" element={<TelaSucesso/>}></Route>
+                <Route path="/sucesso/:idFilme" element={<TelaSucesso/>}></Route>
             </Routes>
         </BrowserRouter>
     )

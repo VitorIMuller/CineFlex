@@ -8,6 +8,7 @@ import './style.css'
 export default function TelaHorario(){
     const [sessao, setSessao] = useState([]);
     const {idSessao} = useParams();
+    const {idFilme} = useParams();
     
     useEffect(()=>{
       
@@ -25,12 +26,11 @@ export default function TelaHorario(){
        )
       }
       console.log(sessao)
-
+      console.log(idFilme)
       
 
       return (
         <div>
-
               <div className="selecao">
                 Selecione o(s) assento(s)
               </div>
@@ -65,12 +65,12 @@ export default function TelaHorario(){
                       <input type="text" placeholder='Digite seu nome...' />
                     </div>
                     <div className="input">
-                      CPF do comprador:
+                      CPF comprador: 
                       <input type="text" placeholder='Digite seu CPF...' />
                     </div>
                   </div>
                   <div className='alinhabotao'>
-                    <Link to={'/sucesso'} nomeFilme={sessao.movie.title} data={sessao.day.date}>
+                    <Link to={`/sucesso/${idFilme}`} >
                     <button className="reservaBotao">
                       Reservar Assento(s)
                     </button>

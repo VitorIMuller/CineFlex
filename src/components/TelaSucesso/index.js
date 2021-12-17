@@ -1,18 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useState } from 'react/cjs/react.development';
 import styled from 'styled-components';
+import axios from 'axios';
 
 // import { Container } from './styles';
 
-function TelaSucesso({nomeFilme, data}) {
-  console.log(nomeFilme)
+function TelaSucesso() {
+  const[filme, setFilme] = useState();
+  const {idFilme} = useParams([]);
+
+  useEffect(()=>{
+    const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies/${idFilme}/showtimes`);
+      promessa.then((resposta)=>
+      setFilme(resposta.data));
+  },[]);
+
+  console.log(filme)
+  console.log(idFilme)
   return (
     <>
     <Selecao> Pedido feito<br></br> com sucesso!</Selecao>
     <Data>
       <Titulo> Filme e sessão</Titulo>
-      <TituloFilme>{nomeFilme}</TituloFilme>
-      <DataHora> {data} 15:00</DataHora>
+      <TituloFilme>{filme.title}</TituloFilme>
+      <DataHora>  15:00</DataHora>
     </Data>
     <Ingressos>
       <Titulo>Ingressos</Titulo>

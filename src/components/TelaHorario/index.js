@@ -24,7 +24,7 @@ export default function TelaHorario(){
        </>
      )
     }
-    console.log(filme)
+    
     return (
 <div>
 
