@@ -41,7 +41,11 @@ function TelaSucesso() {
     <Dados>
       <Titulo> Comprador</Titulo>
       <NomeComprador>Nome: {dados.buyer.nome}</NomeComprador>
-      <Cpf> CPF: {dados.buyer.cpf}</Cpf>
+      <Cpf> CPF: {dados.buyer.cpf.replace(/\D/g, '')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+        .replace(/(-\d{2})\d+?$/, '$1')}</Cpf>
     </Dados>
     <AlinhaBotao>
       <Link to={"/"}>

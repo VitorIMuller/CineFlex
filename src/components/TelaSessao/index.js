@@ -40,7 +40,11 @@ export default function TelaHorario(){
         const dadoCompra = {
           'ids': id,   
           'name': nome,
-          'cpf': cpf
+          'cpf': cpf.replace(/\D/g, '')
+          .replace(/(\d{3})(\d)/, '$1.$2')
+          .replace(/(\d{3})(\d)/, '$1.$2')
+          .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+          .replace(/(-\d{2})\d+?$/, '$1')
         }
         console.log(dadoCompra)
         const post = axios.post('https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many', dadoCompra )
