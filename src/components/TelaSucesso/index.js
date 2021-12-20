@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -9,6 +9,8 @@ import axios from 'axios';
 function TelaSucesso() {
   const[filme, setFilme] = useState();
   const {idFilme} = useParams([]);
+  const location = useLocation();
+  const dados = location.state;
 
   useEffect(()=>{
     const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies/${idFilme}/showtimes`);
@@ -22,22 +24,24 @@ function TelaSucesso() {
     <Selecao> Pedido feito<br></br> com sucesso!</Selecao>
     <Data>
       <Titulo> Filme e sessão</Titulo>
-      <TituloFilme></TituloFilme>
-      <DataHora>  15:00</DataHora>
+      <TituloFilme>{dados.title}</TituloFilme>
+      <DataHora> {dados.date} - {dados.hour}</DataHora>
     </Data>
     <Ingressos>
       <Titulo>Ingressos</Titulo>
       <AssentosReservados>
         <ul>
-          <li>Assento 15</li>
-          <li>Assento 16</li>
+          {dados.seats.map((assentos)=>
+          <li>Assento {assentos.name}</li>
+          )}
+          
         </ul>
       </AssentosReservados>
     </Ingressos>
     <Dados>
       <Titulo> Comprador</Titulo>
-      <NomeComprador>Nome: Vitor Muller</NomeComprador>
-      <Cpf> CPF: 086.206.989-07</Cpf>
+      <NomeComprador>Nome: {dados.buyer.nome}</NomeComprador>
+      <Cpf> CPF: {dados.buyer.cpf}</Cpf>
     </Dados>
     <AlinhaBotao>
       <Link to={"/"}>

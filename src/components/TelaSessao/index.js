@@ -13,7 +13,7 @@ export default function TelaHorario(){
     const [ids, setIds] = useState([]);
     const [nome, setName] = useState("");
     const [cpf, setCpf] = useState("");
-    
+    const id = ids.map((e)=> e.id)
     
     useEffect(()=>{
       
@@ -24,6 +24,7 @@ export default function TelaHorario(){
     }, []);
     
     
+    
     if(sessao.length===0){
       return (
         <>
@@ -32,20 +33,29 @@ export default function TelaHorario(){
        )
       }
       
-    const id = ids.map((e)=> e.id)
-     function sendData(){
       
-       const dadoCompra = {
-         'ids': id,   
-         'name': nome,
-         'cpf': cpf
-       }
-       console.log(dadoCompra)
-       const post = axios.post('https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many', dadoCompra )
-       post.then((sucesso)=>console.log("sucesso"))
-       post.catch((erro)=> console.log("erro"))
-     }  
-     
+      
+      function sendData(){
+        
+        const dadoCompra = {
+          'ids': id,   
+          'name': nome,
+          'cpf': cpf
+        }
+        console.log(dadoCompra)
+        const post = axios.post('https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many', dadoCompra )
+        post.then((sucesso)=>console.log("sucesso"))
+        post.catch((erro)=> console.log("erro"))
+      }  
+      
+      const dados = {
+                title: sessao.movie.title,
+                date: sessao.day.date,
+                hour: sessao.name,
+                seats: ids,
+                buyer: { nome, cpf: cpf}
+      }
+  
     
       return (
         <div>
@@ -102,7 +112,7 @@ export default function TelaHorario(){
                     </div>
                   </div>
                   <div className='alinhabotao'>
-                    <Link to={`/sucesso/${idFilme}`}>
+                    <Link to={`/sucesso/${idFilme}`} state={dados}>
                     <button  onClick={()=> sendData()} className="reservaBotao">
                       Reservar Assento(s)
                     </button>

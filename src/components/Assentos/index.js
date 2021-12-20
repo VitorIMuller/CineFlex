@@ -10,7 +10,7 @@ import './style.css'
   const verificarStatus = () => {
     setstatusAssento(isAvailable ? "available" : "indisponivel")
 }
-  console.log(ids)
+  
   const reservarAssento = () => {
         if(statusAssento === "available"){
           setstatusAssento("selecionado")
