@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -16,14 +16,13 @@ function TelaSucesso() {
       setFilme(resposta.data));
   },[]);
 
-  console.log(filme)
-  console.log(idFilme)
+  
   return (
     <>
     <Selecao> Pedido feito<br></br> com sucesso!</Selecao>
     <Data>
       <Titulo> Filme e sessão</Titulo>
-      <TituloFilme>{filme.title}</TituloFilme>
+      <TituloFilme></TituloFilme>
       <DataHora>  15:00</DataHora>
     </Data>
     <Ingressos>

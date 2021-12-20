@@ -1,41 +1,35 @@
 import React from 'react';
-import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect , useState } from 'react';
+import './style.css'
 
 
-export default function Assentos({isAvailable, name}) {
-  const [disponivel, setDisponivel] = useState(isAvailable);
-
-  
-  function isDisponivel(assento){
-    console.log(assento)
-    if(assento === false){
-      setDisponivel(false);
-      
-    }else{
-      setDisponivel(true);
-    }
-  }
-
-    console.log(disponivel)
+  const Assentos = ({isAvailable, name, ids, setIds, idSeat}) => {
+  const [statusAssento, setstatusAssento] = useState("available")
+ 
     
+  const verificarStatus = () => {
+    setstatusAssento(isAvailable ? "available" : "indisponivel")
+}
+  console.log(ids)
+  const reservarAssento = () => {
+        if(statusAssento === "available"){
+          setstatusAssento("selecionado")
+          setIds([...ids, {id: Number(idSeat), name: name}])
+        } else if(statusAssento === "selecionado"){
+          setstatusAssento("available")
+          setIds(ids.filter(element => element.ids !== Number(ids))) 
+            
+        }else{
+          alert('Esse assento não está disponível')
+        }
+    }
+    
+    
+    useEffect(verificarStatus, [isAvailable]);
   return (
-    <Assento Disponivel = {isAvailable} onClick={()=>isDisponivel(isAvailable)} >{name}</Assento>
+    <div className={`assento ${statusAssento}`} onClick={reservarAssento} key={ids}>{name}</div>
+    
   )
 }
+export default Assentos
 
-const Assento = styled.div`
-      
-background-color: ${({Disponivel}) => Disponivel ? '#C3CFD9' : '#FBE192'};
-
-
-width: 26px;
-height: 26px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-border-radius: 50px;
-
-`

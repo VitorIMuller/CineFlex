@@ -1,0 +1,142 @@
+.rodape{
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    height: 117px ;
+
+    display: flex;
+    align-items: center;
+
+    background-color: white;
+
+    border-top: solid 1px #9EADBA ;
+    
+ }
+.filmeRodape{
+        width: 64px;
+        height: 89px;
+    
+        padding: 8px;
+       
+        margin-left: 10px;
+        margin-bottom: 15px;
+        margin-top: 20px;
+
+        
+
+} 
+.rodape p{
+     margin-left: 14px;
+     font-weight: 400;
+     font-size: 26px;
+     color: #293845;
+}
+.descriçãoRodapé{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    
+}
+.topo {
+    width: 100%;
+    height: 67px;
+    
+    background-color: #c3cfd9;
+    
+    color: #e8833a;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 34px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.assentos {
+    width: 350px;
+    height: 200px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 7px;
+}
+.assento {
+    width: 26px;
+    height: 26px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50px;
+    
+    margin-bottom: 0;
+    
+}
+
+
+.available{
+    background: #ddd;
+    box-shadow: 0 1px 3px 0 #fff;
+    transition: all .15s;
+}
+
+.available:hover,
+.available:focus
+{
+    transform: translateY(-5%);
+    box-shadow: 0 2px 6px #fff;
+}
+
+.available:active{
+    transform: translateY(-1%);
+    box-shadow: 0 1px 4px #fff;
+}
+
+
+.indisponivel{
+    background: #f9fd01;
+    box-shadow: 0 2px 5px 0 #f9fd01;
+    transition: all .15s;
+}
+
+.indisponivel:hover,
+.indisponivel:focus
+{
+    transform: translateY(-5%);
+    box-shadow: 0 2px 6px #f9fd01;
+}
+
+.indisponivel:active{
+    transform: translateY(-1%);
+    box-shadow: 0 1px 4px #f9fd01;
+}
+
+
+.selecionado{
+    background: #02fa02;
+    box-shadow: 0 2px 5px 0 #02fa02;
+    transition: all .15s;
+}
+
+.selecionado:hover,
+.selecionado:focus{
+    transform: translateY(-5%);
+    box-shadow: 0 2px 6px #02fa02;
+}
+
+.selecionado:active{
+    transform: translateY(-1%);
+    box-shadow: 0 1px 4px #02fa02;
+}
+
+.available p,
+.indisponivel p,
+.selecionado p{
+    font-size: 12px;
+}

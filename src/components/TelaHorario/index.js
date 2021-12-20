@@ -24,10 +24,10 @@ export default function TelaHorario(){
        </>
      )
     }
+    console.log(filme)
     
     return (
 <div>
-
       <div className="selecao">
         Selecione o horário
       </div>
@@ -36,7 +36,7 @@ export default function TelaHorario(){
             <p>{filme.weekday} - {filme.date}</p>
                 <div className="listaHorario">
                     {filme.showtimes.map((horario)=>
-                    <Link to={`assentos/${horario.id}`}>
+                    <Link  to={`assentos/${horario.id}`}>
                         <div  className="horario">
                             {horario.name}
                         </div>

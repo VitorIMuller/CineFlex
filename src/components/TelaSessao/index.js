@@ -1,14 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import {  Link, useParams,  } from 'react-router-dom';
 import styled from 'styled-components';
 import Assentos from '../Assentos';
 import './style.css'
+
 
 export default function TelaHorario(){
     const [sessao, setSessao] = useState([]);
     const {idSessao} = useParams();
     const {idFilme} = useParams();
+    const [ids, setIds] = useState([]);
+    const [nome, setName] = useState("");
+    const [cpf, setCpf] = useState("");
+    
     
     useEffect(()=>{
       
@@ -18,6 +23,7 @@ export default function TelaHorario(){
       );
     }, []);
     
+    
     if(sessao.length===0){
       return (
         <>
@@ -25,10 +31,22 @@ export default function TelaHorario(){
          </>
        )
       }
-      console.log(sessao)
-      console.log(idFilme)
       
-
+    const id = ids.map((e)=> e.id)
+     function sendData(){
+      
+       const dadoCompra = {
+         'ids': id,   
+         'name': nome,
+         'cpf': cpf
+       }
+       console.log(dadoCompra)
+       const post = axios.post('https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many', dadoCompra )
+       post.then((sucesso)=>console.log("sucesso"))
+       post.catch((erro)=> console.log("erro"))
+     }  
+     
+    
       return (
         <div>
               <div className="selecao">
@@ -40,8 +58,11 @@ export default function TelaHorario(){
                     {sessao.seats.map((assentos)=>
                     <Assentos
                     {...assentos}
-                    isAvailable={assentos.isAvailable}
-                    name = {assentos.name}
+                     isAvailable={assentos.isAvailable}
+                     name = {assentos.name}
+                     ids={ids}
+                     setIds={setIds}
+                     idSeat={assentos.id}
                     
                     />)}
                   </div>
@@ -62,19 +83,31 @@ export default function TelaHorario(){
                   <div className="inputs">
                     <div className="input">
                       Nome do Comprador:
-                      <input type="text" placeholder='Digite seu nome...' />
+                      <input 
+                        placeholder='Digite seu nome...' 
+                        onChange = {e => setName(e.target.value)}
+                        value = {nome}
+                        
+                      />
                     </div>
                     <div className="input">
                       CPF comprador: 
-                      <input type="text" placeholder='Digite seu CPF...' />
+                      <input  
+                        placeholder='Digite seu CPF...'
+                        onChange = {e => setCpf(e.target.value)}
+                        value = {cpf}
+                        pattern = "[0-9]{11}"
+                        
+                      />
                     </div>
                   </div>
                   <div className='alinhabotao'>
-                    <Link to={`/sucesso/${idFilme}`} >
-                    <button className="reservaBotao">
+                    <Link to={`/sucesso/${idFilme}`}>
+                    <button  onClick={()=> sendData()} className="reservaBotao">
                       Reservar Assento(s)
                     </button>
                     </Link>
+                    
                   </div>
               </div>
                       <div className="rodape">
