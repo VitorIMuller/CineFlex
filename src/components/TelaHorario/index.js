@@ -36,7 +36,7 @@ export default function TelaHorario(){
             <p>{filme.weekday} - {filme.date}</p>
                 <div className="listaHorario">
                     {filme.showtimes.map((horario)=>
-                    <Link  to={`assentos/${horario.id}`}>
+                    <Link  to={`assentos/${horario.id}`} style={{ textDecoration: 'none' }}>
                         <div  className="horario">
                             {horario.name}
                         </div>
