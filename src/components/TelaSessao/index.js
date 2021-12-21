@@ -62,7 +62,7 @@ export default function TelaHorario(){
   
     
       return (
-        <div>
+        <div className='padding'>
               <div className="selecao">
                 Selecione o(s) assento(s)
               </div>

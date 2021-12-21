@@ -27,7 +27,7 @@ export default function TelaHorario(){
     console.log(filme)
     
     return (
-<div>
+<div className='padding'>
       <div className="selecao">
         Selecione o horário
       </div>

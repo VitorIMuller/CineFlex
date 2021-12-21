@@ -9,6 +9,9 @@
     font-size: 24px;
     font-weight: 400;
 }
+.padding{
+    padding-bottom: 150px;
+}
 .listaFilmes{
     display: flex;
     flex-wrap: wrap;

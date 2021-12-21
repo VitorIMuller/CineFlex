@@ -13,6 +13,9 @@
     align-items: center;
     justify-content: center;
 }
+.padding{
+    padding-bottom: 150px;
+}
 .selecao{
     width: 100%;
     height: 110px;
